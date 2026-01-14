@@ -1,0 +1,26 @@
+# Generated
+build/
+.dart_tool/
+.flutter-plugins
+.packages
+pubspec.lock
+
+# Android Heavy
+android/.gradle/
+android/app/build/
+android/local.properties
+android/gradlew*
+android/app/src/main/res/drawable-*/  # Icons (20MB)
+
+# iOS Heavy  
+ios/.build/
+ios/Pods/
+ios/Podfile.lock
+ios/Runner.xcworkspace/
+
+# IDE/Logs
+.idea/
+.vscode/
+*.iml
+*.log
+.DS_Store
