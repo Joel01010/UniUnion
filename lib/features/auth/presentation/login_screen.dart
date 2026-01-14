@@ -142,7 +142,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     decoration: InputDecoration(
                       labelText: 'VIT Email',
                       labelStyle: TextStyle(color: Colors.white.withOpacity(0.6)),
-                      hintText: 'user@vit.ac.in',
+                      hintText: 'user@vitstudent.ac.in',
                       hintStyle: TextStyle(color: Colors.white.withOpacity(0.3)),
                       prefixIcon: Icon(Icons.email_outlined, color: Colors.white.withOpacity(0.6)),
                       filled: true,
@@ -156,8 +156,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                     textInputAction: TextInputAction.next,
                     validator: (value) {
                       if (value == null || value.isEmpty) return 'Email is required';
-                      if (!value.trim().toLowerCase().endsWith('@vit.ac.in')) {
-                        return 'Use your VIT email (@vit.ac.in)';
+                      if (!value.trim().toLowerCase().endsWith('@vitstudent.ac.in')) {
+                        return 'Use your VIT email (@vitstudent.ac.in)';
                       }
                       return null;
                     },
