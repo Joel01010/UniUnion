@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "791985764276",
+    "project_id": "uniunion-1c239",
+    "storage_bucket": "uniunion-1c239.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791985764276:android:9a5571028e331c62fa24e1",
+        "android_client_info": {
+          "package_name": "com.vitchennai.vit_chennai_student_utility"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "791985764276-ulmtrv48s1rt02r9tgpq8df4dt6ekbf5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vitchennai.vit_chennai_student_utility",
+            "certificate_hash": "2c2255f9d8ef0947b6521798fa6889ffc6ca0b74"
+          }
+        },
+        {
+          "client_id": "791985764276-od2560tp00vv34h4p0vkgbr22h357cgt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxl4DxXr8T04pY1AMp9Zz3A8lV4Oos3bg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "791985764276-od2560tp00vv34h4p0vkgbr22h357cgt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "791985764276-qicjv4k5m1dd52r8h6cfr01q51eh68jn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vitchennai.vitChennaiStudentUtility"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
