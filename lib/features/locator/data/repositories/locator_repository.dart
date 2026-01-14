@@ -20,15 +20,18 @@ class LocatorRepository {
       return Stream.value(_getMockPosts());
     }
     final now = DateTime.now();
+    // Simple query - no composite index needed
     return _firestore!.collection('empty_class_posts')
         .where('expiresAt', isGreaterThan: Timestamp.fromDate(now))
-        .orderBy('expiresAt', descending: false)
-        .orderBy('spottedAt', descending: true)
         .snapshots()
         .map((snapshot) {
-      return snapshot.docs.map((doc) => ClassPost.fromMap(doc.data(), doc.id))
+      final posts = snapshot.docs
+          .map((doc) => ClassPost.fromMap(doc.data(), doc.id))
           .where((post) => post.expiresAt.isAfter(DateTime.now()))
           .toList();
+      // Sort in memory
+      posts.sort((a, b) => b.spottedAt.compareTo(a.spottedAt));
+      return posts;
     });
   }
 

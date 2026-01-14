@@ -40,7 +40,28 @@ class FirebaseAuthRepository implements AuthService {
 
   @override
   Future<void> signInWithEmailAndPassword(String email, String password) async {
-    await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+    // Validate domain before attempting sign-in
+    if (!email.trim().toLowerCase().endsWith('@vitstudent.ac.in')) {
+      throw Exception('Access restricted to VIT Chennai students (@vitstudent.ac.in)');
+    }
+    try {
+      await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case 'user-not-found':
+          throw Exception('No account found with this email');
+        case 'wrong-password':
+          throw Exception('Incorrect password');
+        case 'invalid-email':
+          throw Exception('Invalid email address');
+        case 'user-disabled':
+          throw Exception('This account has been disabled');
+        case 'too-many-requests':
+          throw Exception('Too many attempts. Please try again later');
+        default:
+          throw Exception('Sign in failed: ${e.message}');
+      }
+    }
   }
 
   @override
@@ -48,7 +69,20 @@ class FirebaseAuthRepository implements AuthService {
     if (!email.trim().toLowerCase().endsWith('@vitstudent.ac.in')) {
       throw Exception('Registration restricted to VIT Chennai students (@vitstudent.ac.in)');
     }
-    await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+    try {
+      await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
+    } on FirebaseAuthException catch (e) {
+      switch (e.code) {
+        case 'email-already-in-use':
+          throw Exception('An account already exists with this email');
+        case 'weak-password':
+          throw Exception('Password is too weak. Use at least 6 characters');
+        case 'invalid-email':
+          throw Exception('Invalid email address');
+        default:
+          throw Exception('Registration failed: ${e.message}');
+      }
+    }
   }
 
   @override
